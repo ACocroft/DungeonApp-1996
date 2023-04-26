@@ -14,6 +14,7 @@ namespace DungeonClass
         {
             Character player = new Character();
             player.Life = 90;
+            player.MaxLife = 100;
             player.Name = "Player 1";
             player.HitChance = 80;
             player.Block = 60;
