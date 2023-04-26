@@ -62,13 +62,20 @@ namespace DungeonLibrary
             set { _isTwoHanded = value; }
         }
 
-        public Weapon(int minDamage, int maxDamage, string name, int bonusHitChance, bool isTwoHanded)
+        public Weapon(string name, int minDamage, int maxDamage, int bonusHitChance, bool isTwoHanded)
         {
             MaxDamage = maxDamage;
             MinDamage = minDamage <= MaxDamage ? minDamage : MaxDamage;
             Name = name;
             BonusHitChance = bonusHitChance;
             IsTwoHanded = isTwoHanded;
+        }
+
+        public override string ToString()
+        {
+            return $"{Name}\t{MinDamage} to {MaxDamage} Damage\n" +
+                $"Bonus Hit: {BonusHitChance}%\n" +
+                $"{(IsTwoHanded ? "Two" : "One" )
         }
 
         public Weapon()

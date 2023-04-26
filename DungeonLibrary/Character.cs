@@ -66,7 +66,7 @@
             get { return _block; }
             set { _hitChance = value; }
         }
-        public Character(int life, string name, int hitChance, int block, int maxLife)
+        public Character(string name, int hitChance, int block, int maxLife, int life)
         {
             MaxLife = maxLife;
             Life = life;
