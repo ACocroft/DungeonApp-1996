@@ -30,7 +30,7 @@ namespace DungeonClass
 
             Console.WriteLine($"You, {player.Name}, have braved the Honorless Wood with" +
                 $"only a {weapon.Name} at your side. To best the foes" +
-                $"within, will such a thing save you then?");
+                $" within, will such a thing save you then?");
 
 
         }//end Main()
