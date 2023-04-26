@@ -31,6 +31,10 @@ namespace DungeonClass
             Console.WriteLine($"You, {player.Name}, have braved the Honorless Wood with" +
                 $"only a {weapon.Name} at your side. To best the foes" +
                 $" within, will such a thing save you then?");
+            Console.WriteLine("Max damage: " + weapon.MaxDamage);
+            Console.WriteLine("Min damage: " + weapon.MinDamage);
+            Console.WriteLine("Bonus Hit Chance: " + weapon.BonusHitChance);
+            Console.WriteLine("You're carrying a: " + weapon.IsTwoHanded + " weapon.");
 
 
         }//end Main()
