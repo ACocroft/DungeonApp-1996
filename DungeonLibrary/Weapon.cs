@@ -24,18 +24,18 @@ namespace DungeonLibrary
 
         //funny
         //FIELDS
-        //people
-        //PROPERTIES
-        //collect
-        //CONSTRUCTORS
-        //monkeys 
-        //METHODS
 
         private int _minDamage;
         private int _maxDamage;
         private string _name;
         private int _bonusHitChance;
-        private bool _isTwoHanded; 
+        private bool _isTwoHanded;
+        private string _weaponType;
+
+        //people
+        //PROPERTIES
+
+        //TODO - WeaponType prop
 
         public int MinDamage
         {
@@ -61,23 +61,38 @@ namespace DungeonLibrary
             get { return _isTwoHanded; }
             set { _isTwoHanded = value; }
         }
+        public string WeaponType
+        {
+            get { return _weaponType; }
+            set { _weaponType = value; }
+        }
 
-        public Weapon(string name, int minDamage, int maxDamage, int bonusHitChance, bool isTwoHanded)
+        //collect
+        //CONSTRUCTORS
+        public Weapon(string name, int minDamage, int maxDamage, int bonusHitChance, bool isTwoHanded, string weaponType)
+        //TODO - Add a parameter and assignment for WeaponType
+
+        //monkeys 
+        //METHODS
         {
             MaxDamage = maxDamage;
             MinDamage = minDamage <= MaxDamage ? minDamage : MaxDamage;
             Name = name;
             BonusHitChance = bonusHitChance;
             IsTwoHanded = isTwoHanded;
+            WeaponType = weaponType;
         }
 
         public override string ToString()
         {
-            return $"{Name}\t{MinDamage} to {MaxDamage} Damage\n" +
-                $"Bonus Hit: {BonusHitChance}%\n" +
-                $"{(IsTwoHanded ? "Two" : "One" )
+            return $"{Name}\n" +
+                $"Maximum Damage: {MaxDamage}\n" +
+                $"Minimum Damage: {MinDamage}\n" +
+                $"Bonus Hits Chance: {BonusHitChance}\n" +
+                $"{(IsTwoHanded ? "Two" : "One")}-Handed\n" +
+                $"Weapon Type: {WeaponType.ToString().Replace('_', ' ')}";
         }
-
+        //TODO - ADD WeaponType to the ToString()
         public Weapon()
         {
         }
