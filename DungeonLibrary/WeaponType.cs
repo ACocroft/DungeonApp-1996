@@ -10,7 +10,7 @@ namespace DungeonLibrary
     //Add at least 5 types of weapons.
     //The intent of this is to provide potential expansions, such as a monster being weak to
     //a particular type of weapon, or resistant, or both.
-    internal enum WeaponType
+    public enum WeaponType
     {
         Scimitar,
         Broadsword,
