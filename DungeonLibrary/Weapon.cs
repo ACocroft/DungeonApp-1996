@@ -30,17 +30,16 @@ namespace DungeonLibrary
         private string _name;
         private int _bonusHitChance;
         private bool _isTwoHanded;
-        private string _weaponType;
+        private WeaponType _weaponType;
 
         //people
         //PROPERTIES
 
-        //TODO - WeaponType prop
 
         public int MinDamage
         {
             get { return _minDamage; }
-            set { _minDamage = value; }
+            set { _minDamage = value < MaxDamage && value > 0 ? value : 1; }
         }public int MaxDamage
         {
             get { return _maxDamage; }
@@ -61,7 +60,7 @@ namespace DungeonLibrary
             get { return _isTwoHanded; }
             set { _isTwoHanded = value; }
         }
-        public string WeaponType
+        public WeaponType WeaponType
         {
             get { return _weaponType; }
             set { _weaponType = value; }
@@ -69,14 +68,13 @@ namespace DungeonLibrary
 
         //collect
         //CONSTRUCTORS
-        public Weapon(string name, int minDamage, int maxDamage, int bonusHitChance, bool isTwoHanded, string weaponType)
-        //TODO - Add a parameter and assignment for WeaponType
+        public Weapon(string name, int minDamage, int maxDamage, int bonusHitChance, bool isTwoHanded, WeaponType weaponType)
 
         //monkeys 
         //METHODS
         {
             MaxDamage = maxDamage;
-            MinDamage = minDamage <= MaxDamage ? minDamage : MaxDamage;
+            MinDamage = minDamage;
             Name = name;
             BonusHitChance = bonusHitChance;
             IsTwoHanded = isTwoHanded;
@@ -92,7 +90,6 @@ namespace DungeonLibrary
                 $"{(IsTwoHanded ? "Two" : "One")}-Handed\n" +
                 $"Weapon Type: {WeaponType.ToString().Replace('_', ' ')}";
         }
-        //TODO - ADD WeaponType to the ToString()
         public Weapon()
         {
         }
