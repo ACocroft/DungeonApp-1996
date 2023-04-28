@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DungeonLibrary
+﻿namespace DungeonLibrary
 {
     public class Monster : Character
     {
@@ -20,102 +13,57 @@ namespace DungeonLibrary
         #endregion
 
         //Fields
-        private int _maxLife;
-        private int _life;
-        private int _hitChance;
-        private int _block;
         private int _maxDamage;
-        private int _damage;
-        private string _name;
+        private int _minDamage;
 
         //Properties
-        public string Name
-        {
-            get { return  _name; }
-            set { _name = value; }
-        }//end Name
-        public int MaxLife
-        {
-            get { return _maxLife; }
-            set { _maxLife = value; } 
-        }
-        public int Life
-        {
-            get { return _life; }
-            set
-            {
-                if (value > _maxLife)
-                    _life = _maxLife;
-                else
-                    _life = value;
-            }
-        }
-        public int HitChance
-        {
-            get { return _hitChance; }
-            set { _hitChance = value; }
-        }
-        public int Block
-        {
-            get { return _block; }
-            set { _hitChance = value; }
-        }
         public int MaxDamage
         {
             get { return _maxDamage; }
             set { _maxDamage = value; }
         }
-        public int Damage
+        public int MinDamage
         {
-            get { return _damage; }
-            set
-            {
-                if (value > _maxDamage)
-                    _damage = _maxDamage;
-                else
-                    _damage = value;
-            }
-        }//end props
+            get { return _minDamage; }
+            set { _minDamage = value < MaxDamage && value > 0 ? value : 1; }
 
+        }//end props
+        public string Description { get; set; }
         //Constructor
-        public Monster (string name, int hitChance, int block, int maxLife, int maxDamage)
-            :base(name,
+        public Monster (string name, int hitChance, int block, int maxLife, int maxDamage, int minDamage, string description)
+            : base(name,
                  hitChance,
                  block,
-                 maxLife,
-                 maxDamage)
+                 maxLife)
         {
-            Name = name;
-            HitChance = hitChance;
-            Block = block;
-            MaxLife = maxLife;
+            if (maxDamage <= minDamage || minDamage <= 0)
+            {
+              
+            }
             MaxDamage = maxDamage;
+            MinDamage = minDamage;
+            Description = description;
         }
 
         public Monster()
         {
         }
-        public override string ToString()
-        {
-            return $"{Name}\n" +
-                $"Life: {Life} / {MaxLife}\n" +
-                $"Hit Chance: {HitChance}%\n" +
-                $"Block: {Block}%";
-        }
-        public virtual int CalcBlock() { return Block; }
-        public virtual int CalcHitChance() { return HitChance; }
-
-        public virtual int CalcDamage1 { get; }
-
 
         //default ctor so we can have default monsters later
 
         //Override the ToString() to include your new custom props.
         //Override CalcDamage()
+        public override string ToString()
+        {
+            return base.ToString() + $"\nDamage: {MinDamage} - {MaxDamage}\n{Description}";
+        }
         public override int CalcDamage()
         {
             //return a random number between your min and max damage properties.
-            throw new NotImplementedException();
+            return new Random().Next(MinDamage, MaxDamage + 1);
         }
+
+       
+
     }
 }

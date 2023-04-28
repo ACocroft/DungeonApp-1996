@@ -14,6 +14,7 @@ namespace DungeonLibrary
     {
         Scimitar,
         Broadsword,
+        Bow,
         Greatsword,
         Axe,
         Fists

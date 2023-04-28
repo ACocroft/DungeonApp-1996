@@ -68,24 +68,18 @@
             get { return _block; }
             set { _hitChance = value; }
         }
-        public Character(string name, int hitChance, int block, int maxLife, int maxDamage)
+        public Character(string name, int hitChance, int block, int maxLife)
         {
             MaxLife = maxLife;
             Name = name;
             HitChance = hitChance;
             Block = block;
+            Life = maxLife;
+            Name = name;
         }
 
         public Character()
         {
-        }
-
-        protected Character(string name, int hitChance, int block, int maxLife)
-        {
-            Name = name;
-            HitChance = hitChance;
-            Block = block;
-            MaxLife = maxLife;
         }
 
         public override string ToString()
