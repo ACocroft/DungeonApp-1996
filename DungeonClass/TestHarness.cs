@@ -12,34 +12,26 @@ namespace DungeonClass
     {
         static void Main(string[] args)
         {
-            //Character player = new Character();
-           // player.Life = 90;
-           // player.MaxLife = 100;
-            //player.Name = "Player 1";
-           // player.HitChance = 80;
-           // player.Block = 60;
+            Weapon w1 = new Weapon("Broadsword", 1, 4, 0, false, WeaponType.Broadsword);
+            Player player = new Player("Conan", 80, 50, 100, Race.Cimmerian, w1);
+            Monster m1 = new Monster("Ape Demon", 50, 40, 10, 4, 1, "A hellish abomination from the planes of madness!");
+
+            while (player.Life > 0 && m1.Life > 0)
+            {
+                Combat.DoBattle(player,m1);
+                Console.WriteLine("Player Life: " + player.Life);
+                Console.WriteLine("Monster Life: " + m1.Life);
+                Console.ReadKey();
+                Console.Clear();
+            }
+            if (player.Life <=0)
+            {
+                Console.WriteLine("Crom laughs at you, laughs from his mountain!");
+            }
+          
 
 
 
-            Weapon weapon = new Weapon();
-            weapon.MaxDamage = 100;
-            weapon.MinDamage = 100;
-            weapon.BonusHitChance = 100;
-            weapon.Name = "Weapon Name";
-            weapon.IsTwoHanded = true;
-
-            //Console.WriteLine($"You, {player.Name}, have braved the Honorless Wood with" +
-           //     $"only a {weapon.Name} at your side. To best the foes" +
-           //     $" within, will such a thing save you then?");
-            Console.WriteLine("Max damage: " + weapon.MaxDamage);
-            Console.WriteLine("Min damage: " + weapon.MinDamage);
-            Console.WriteLine("Bonus Hit Chance: " + weapon.BonusHitChance);
-
-            Console.WriteLine(weapon);
-
-            //TODO Test player creation and ToString(), calcblock, calcdamage, calchitchance
-            //TODO Test monster creation and ToString(), calcblock, calcdamage, calchitchance
-            Character[] characters = { new Player(), new Monster() };
 
         }//end Main()
     }//class

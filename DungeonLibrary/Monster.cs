@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DungeonLibrary
+﻿namespace DungeonLibrary
 {
     public class Monster : Character
     {
@@ -21,7 +14,7 @@ namespace DungeonLibrary
 
         //Fields
         private int _maxDamage;
-        private int _damage;
+        private int _minDamage;
 
         //Properties
         public int MaxDamage
@@ -29,50 +22,48 @@ namespace DungeonLibrary
             get { return _maxDamage; }
             set { _maxDamage = value; }
         }
-        public int Damage
+        public int MinDamage
         {
-            get { return _damage; }
-            set
-            {
-                if (value > _maxDamage)
-                    _damage = _maxDamage;
-                else
-                    _damage = value;
-            }
+            get { return _minDamage; }
+            set { _minDamage = value < MaxDamage && value > 0 ? value : 1; }
 
         }//end props
         public string Description { get; set; }
         //Constructor
-        public Monster (string name, int hitChance, int block, int maxLife, int maxDamage, int damage, string description)
+        public Monster (string name, int hitChance, int block, int maxLife, int maxDamage, int minDamage, string description)
             : base(name,
                  hitChance,
                  block,
                  maxLife)
         {
+            if (maxDamage <= minDamage || minDamage <= 0)
+            {
+              
+            }
             MaxDamage = maxDamage;
-            Damage = damage;
+            MinDamage = minDamage;
             Description = description;
         }
 
         public Monster()
         {
         }
-        public override string ToString()
-        {
-            return $"{Name}\n" +
-                $"Life: {Life} / {MaxLife}\n" +
-                $"Hit Chance: {HitChance}%\n" +
-                $"Block: {Block}%";
-        }
 
         //default ctor so we can have default monsters later
 
         //Override the ToString() to include your new custom props.
         //Override CalcDamage()
+        public override string ToString()
+        {
+            return base.ToString() + $"\nDamage: {MinDamage} - {MaxDamage}\n{Description}";
+        }
         public override int CalcDamage()
         {
             //return a random number between your min and max damage properties.
-            throw new NotImplementedException();
+            return new Random().Next(MinDamage, MaxDamage + 1);
         }
+
+       
+
     }
 }

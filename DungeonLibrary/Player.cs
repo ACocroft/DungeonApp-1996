@@ -12,7 +12,8 @@ namespace DungeonLibrary
     {
         public Race PlayerRace { get; set; }
         public Weapon EquippedWeapon { get; set; }
-        public Player(string name, int hitChance, int block, int maxLife, Race playerRace, Weapon equippedWeapon)
+        public Player(string name, int hitChance, int block, int maxLife,//character params
+            Race playerRace, Weapon equippedWeapon)//player params
             : base(name,
                    hitChance,
                    block,
@@ -56,12 +57,16 @@ namespace DungeonLibrary
                     raceDescription = "Barbarians of the grey lands";
                     break;
                 case Race.Shemite:
+                    raceDescription = "Fierce bowmen";
                     break;
                 case Race.Kushite:
+                    raceDescription = "Mysterious and devout";
                     break;
                 case Race.Stygian:
+                    raceDescription = "Cunning and merciless";
                     break;
                 case Race.Himelian:
+                    raceDescription = "Strong and hardy";
                     break;
                 default:
                     break;
@@ -81,5 +86,6 @@ namespace DungeonLibrary
             //HitChance - Block = chance that you hit.
             //Roll a random number between 1 and 100. If it's less than the hit chance, we hit.
         }
+
     }
 }

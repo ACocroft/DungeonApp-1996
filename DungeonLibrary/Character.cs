@@ -74,6 +74,8 @@
             Name = name;
             HitChance = hitChance;
             Block = block;
+            Life = maxLife;
+            Name = name;
         }
 
         public Character()
