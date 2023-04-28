@@ -34,7 +34,7 @@ namespace DungeonClass
             Console.WriteLine("Max damage: " + weapon.MaxDamage);
             Console.WriteLine("Min damage: " + weapon.MinDamage);
             Console.WriteLine("Bonus Hit Chance: " + weapon.BonusHitChance);
-            Console.WriteLine("You're carrying a: " + weapon.IsTwoHanded + " weapon.");
+
             Console.WriteLine(weapon);
 
             //TODO Test player creation and ToString(), calcblock, calcdamage, calchitchance

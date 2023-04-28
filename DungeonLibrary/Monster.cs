@@ -20,46 +20,10 @@ namespace DungeonLibrary
         #endregion
 
         //Fields
-        private int _maxLife;
-        private int _life;
-        private int _hitChance;
-        private int _block;
         private int _maxDamage;
         private int _damage;
-        private string _name;
 
         //Properties
-        public string Name
-        {
-            get { return  _name; }
-            set { _name = value; }
-        }//end Name
-        public int MaxLife
-        {
-            get { return _maxLife; }
-            set { _maxLife = value; } 
-        }
-        public int Life
-        {
-            get { return _life; }
-            set
-            {
-                if (value > _maxLife)
-                    _life = _maxLife;
-                else
-                    _life = value;
-            }
-        }
-        public int HitChance
-        {
-            get { return _hitChance; }
-            set { _hitChance = value; }
-        }
-        public int Block
-        {
-            get { return _block; }
-            set { _hitChance = value; }
-        }
         public int MaxDamage
         {
             get { return _maxDamage; }
@@ -75,21 +39,19 @@ namespace DungeonLibrary
                 else
                     _damage = value;
             }
-        }//end props
 
+        }//end props
+        public string Description { get; set; }
         //Constructor
-        public Monster (string name, int hitChance, int block, int maxLife, int maxDamage)
-            :base(name,
+        public Monster (string name, int hitChance, int block, int maxLife, int maxDamage, int damage, string description)
+            : base(name,
                  hitChance,
                  block,
-                 maxLife,
-                 maxDamage)
+                 maxLife)
         {
-            Name = name;
-            HitChance = hitChance;
-            Block = block;
-            MaxLife = maxLife;
             MaxDamage = maxDamage;
+            Damage = damage;
+            Description = description;
         }
 
         public Monster()
@@ -102,11 +64,6 @@ namespace DungeonLibrary
                 $"Hit Chance: {HitChance}%\n" +
                 $"Block: {Block}%";
         }
-        public virtual int CalcBlock() { return Block; }
-        public virtual int CalcHitChance() { return HitChance; }
-
-        public virtual int CalcDamage1 { get; }
-
 
         //default ctor so we can have default monsters later
 
