@@ -1,6 +1,8 @@
 ﻿namespace DungeonLibrary
 {
-    public class Character
+    //abstract marks a class as "incomplete" it must be inherited somewhere to be used.
+    //abstract classes cannot be created as an object using the "new()"
+    public abstract class Character //:Object
     {
         public static void Header(string title)
         {
@@ -66,10 +68,9 @@
             get { return _block; }
             set { _hitChance = value; }
         }
-        public Character(string name, int hitChance, int block, int maxLife, int life)
+        public Character(string name, int hitChance, int block, int maxLife, int maxDamage)
         {
             MaxLife = maxLife;
-            Life = life;
             Name = name;
             HitChance = hitChance;
             Block = block;
@@ -78,5 +79,28 @@
         public Character()
         {
         }
+
+        protected Character(string name, int hitChance, int block, int maxLife)
+        {
+            Name = name;
+            HitChance = hitChance;
+            Block = block;
+            MaxLife = maxLife;
+        }
+
+        public override string ToString()
+        {
+            return $"{Name}\n" +
+                $"Life: {Life} / {MaxLife}\n" +
+                $"Hit Chance: {HitChance}%\n" +
+                $"Block: {Block}%";
+        }
+        //CalcBlock() - returns the int block property, for now
+        public virtual int CalcBlock() { return Block; }
+        public virtual int CalcHitChance() { return HitChance; }
+        public abstract int CalcDamage();
+        //an abstract method will have no functionality, no scopes.
+        //It makes override mandatory
+        
     }//end class
 }//end space

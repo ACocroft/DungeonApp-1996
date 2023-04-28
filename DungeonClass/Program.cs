@@ -14,9 +14,9 @@
 
             //TODO - Variable to keep score
 
-            //TODO - Weapon object creation
+            //Weapon object creation
 
-            //TODO - Player object creation
+            //Player object creation
 
             //Main Game Loop
             bool lose = false;
