@@ -9,8 +9,9 @@ namespace DungeonClass
             #region Introduction
             //Start Background Music? (.wav) < 100mb, cannot control volume so turn headphones down
             //System.Windows.Extensions (NuGet package)
-            Console.Title = "Conan the Cimmerian: A Harrowing Halls of Nemedia";
-            Console.WriteLine("You cleft your way through the Forest of Thorns Without Honor, and into the halls of the decrepit university from which evil ravages Nemedia. The foul snake lich lies ahead. Return richer than ever, or die a wastrel.");
+            Console.Title = "Conan the Cimmerian: A Harrowing Halls of Nemedia ";
+            Console.WriteLine(" -===Conan the Cimmerian: A Harrowing Halls of Nemedia===- \n" +
+                "You cleft your way through the Forest of Thorns Without Honor, and into the halls of the decrepit university from which evil ravages Nemedia. The foul snake lich lies ahead. Return richer than ever, or die a wastrel.");
             Console.WriteLine();
 
             #endregion
