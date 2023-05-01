@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class ApeDemon : Monster
+    public sealed class ApeDemon : Monster
     {
 
         //Fields

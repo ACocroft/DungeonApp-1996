@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class Barbarian : Monster
+    public sealed class Barbarian : Monster
     {
         //Fields
         private bool _isArmored;

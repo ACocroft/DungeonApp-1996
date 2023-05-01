@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class SetCultist : Monster
+    public sealed class SetCultist : Monster
     {
         private bool _isLich;
         public bool IsLich
