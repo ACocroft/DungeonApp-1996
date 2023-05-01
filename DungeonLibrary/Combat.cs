@@ -44,9 +44,11 @@ namespace DungeonLibrary
             }
             else//the attacker "missed"
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"{attacker.Name} missed!");
                 //Console.WriteLine("Roll " + roll);
                 //Console.WriteLine("Chance: " + chance);
+                Console.ResetColor();
             }
         }
         //Handle one round of battle, attacks from both sides.
@@ -59,6 +61,11 @@ namespace DungeonLibrary
             {
                 DoAttack(monster, player);
             }
+        }
+
+        public static void DoBattle(Player player, object monster)
+        {
+            throw new NotImplementedException();
         }
     }
 }

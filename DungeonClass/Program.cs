@@ -9,8 +9,9 @@ namespace DungeonClass
             #region Introduction
             //Start Background Music? (.wav) < 100mb, cannot control volume so turn headphones down
             //System.Windows.Extensions (NuGet package)
-            Console.Title = "Harrowed Halls";
-            Console.WriteLine("You cleft your way through the Forest of Thorns Without Honor, and into the halls of the decrepit university from which evil ravages Nemedia. The foul snake lich lies ahead. Do not dare return without his skull.");
+            Console.Title = "Conan the Cimmerian: A Harrowing Halls of Nemedia";
+            Console.WriteLine("You cleft your way through the Forest of Thorns Without Honor, and into the halls of the decrepit university from which evil ravages Nemedia. The foul snake lich lies ahead. Return richer than ever, or die a wastrel.");
+            Console.WriteLine();
 
             #endregion
 
@@ -24,19 +25,21 @@ namespace DungeonClass
 
             //Player object creation
             //Recommended Expansion - Player Customization. Pick a name and race.
-            Player player = new("Conan", 60, 15, 40, Race.Cimmerian, wep);
-            //Main Game Loop
+            Player player = new ("Conan", 70, 15, 40, Race.Cimmerian, wep);
+            
+
+            //Customization Menu Loop
             bool lose = false;
             do
             {
-                //Generate a room
+                           //Generate a room
                 Console.WriteLine(GetRoom());
                 Monster monster = GetMonster();
                 Console.WriteLine("In this room, a " +monster.Name + " skulks about!");
+                bool reload = false;
 
                 #region Main Menu Loop
                 //Encounter/Menu Loop
-                bool reload = false;
                 do
                 {
                     //print the menu
@@ -91,7 +94,7 @@ namespace DungeonClass
 
                         case ConsoleKey.Escape:
                         case ConsoleKey.X:
-                            Console.WriteLine("Would you so meagerly sever that thread?");
+                            Console.WriteLine("You would so meagerly sever that thread?");
                             lose = true;
                             break;
 
@@ -150,17 +153,27 @@ namespace DungeonClass
 
         private static Monster GetMonster()
         {
-            Monster m1 = new("Ape Demon", 50, 40, 20, 1, 8, "A hellion from the planes of madness!");
-            Monster m2 = new("Hostile Barbarian", 40, 50, 30, 1, 8, "A jibbering wildman from the hills");
-            Monster m3 = new("Cultist of Set", 70, 30, 10, 1, 8, "A wicked priest of the Snake God");
-            Monster m4 = new("Ghoul", 15, 25, 60, 1, 8, "An undead wretch");
+            Monster m1 = new("Ape Demon", 50, 40, 20, 8, 1, "A flying hellion from the planes of madness!");
+            Monster m2 = new("Hostile Barbarian", 40, 50, 30, 8, 1, "A jibbering wildman from the hills");
+            Monster m3 = new("Cultist of Set", 35, 20, 10, 8, 1, "A wicked priest of the Snake God");
+            Monster m4 = new("Ghoul", 15, 25, 10, 1, 8, "An undead eater of human flesh");
+            Monster m5 = new ApeDemon("Dark Ape Demon", 70, 20, 20, 10, 2, "A more feral version of the winged fiend, if such a thing exists!", false);
+            Monster m6 = new Barbarian("Ofirian SellSword", 20, 70, 20, 8, 1, "A heavily armored sellsword from the sister country of Ofir", true);
+            Monster m7 = new SetCultist("The Lich of Set", 50, 20, 80, 15, 5, "The fell priest" +
+                "of Set", true);
+            Monster m8 = new Ghoul("Arch Ghoul", 25, 5, 5, 15, 5, "Watch out!", true);
+
             //create 4 monster subtypes. change monster array.
             Monster[] monsters =
             {
                 m1,m1,
-                m2,
-                m3,
-                m4,m4,m4,m4,
+                m2,m2,
+                m3,m3,m3,m3,
+                m4,m4,m4,m4,m4,m4,m4,
+                m5,
+                m6,
+                m7,
+                m8,
             };
 
             return monsters[new Random().Next(monsters.Length)];

@@ -4,11 +4,8 @@
     //abstract classes cannot be created as an object using the "new()"
     public abstract class Character //:Object
     {
-        public static void Header(string title)
-        {
-            Console.Title = title.ToUpper();
-            Console.WriteLine("CSF2: " + title.ToUpper());
-        }//end header
+       
+     
         /*
            Create Fields and Properties for each of the following attributes.
            life – int
@@ -66,7 +63,7 @@
         public int Block
         {
             get { return _block; }
-            set { _hitChance = value; }
+            set { _block = value; }
         }
         public Character(string name, int hitChance, int block, int maxLife)
         {
@@ -75,7 +72,6 @@
             HitChance = hitChance;
             Block = block;
             Life = maxLife;
-            Name = name;
         }
 
         public Character()
