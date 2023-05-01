@@ -10,10 +10,10 @@ namespace DungeonLibrary
     //make it a child of Character by adding : Character
     public class Player : Character
     {
-        public Race PlayerRace { get; set; }
+        public RaceEnums PlayerRace { get; set; }
         public Weapon EquippedWeapon { get; set; }
         public Player(string name, int hitChance, int block, int maxLife,
-            Race playerRace, Weapon equippedWeapon)
+            RaceEnums playerRace, Weapon equippedWeapon)
             : base(name,
                    hitChance,
                    block,
@@ -27,18 +27,19 @@ namespace DungeonLibrary
             //player constructor. The reference for his is in your CSF2 Enums.cs for ClassicMonsters.
             switch (playerRace)
             {
-                case Race.Cimmerian:
-                    MaxLife += 10;
-                    Life = MaxLife;
+                case RaceEnums.Cimmerian:
                     break;
-                case Race.Shemite:
+                case RaceEnums.Shemite:
                     HitChance += 5;
                     break;
-                case Race.Kushite: 
+                case RaceEnums.Kushite: 
+                    Block += 10;
                     break;
-                case Race.Stygian:
+                case RaceEnums.Stygian:
                     break;
-                case Race.Himelian:
+                case RaceEnums.Himelian:
+                    MaxLife += 10;
+                    Life = MaxLife;
                     break;
             }
 
@@ -53,19 +54,19 @@ namespace DungeonLibrary
             string raceDescription = "";
             switch (PlayerRace)
             {
-                case Race.Cimmerian:
+                case RaceEnums.Cimmerian:
                     raceDescription = "Barbarians of the grey lands";
                     break;
-                case Race.Shemite:
+                case RaceEnums.Shemite:
                     raceDescription = "Fierce bowmen";
                     break;
-                case Race.Kushite:
+                case RaceEnums.Kushite:
                     raceDescription = "Mysterious and devout";
                     break;
-                case Race.Stygian:
+                case RaceEnums.Stygian:
                     raceDescription = "Cunning and merciless";
                     break;
-                case Race.Himelian:
+                case RaceEnums.Himelian:
                     raceDescription = "Strong and hardy";
                     break;
                 default:

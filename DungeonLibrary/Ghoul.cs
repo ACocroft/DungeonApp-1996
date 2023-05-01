@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class Ghoul : Monster
+    public sealed class Ghoul : Monster
     {
         private bool _isArchGhoul;
         public bool IsArchGhoul

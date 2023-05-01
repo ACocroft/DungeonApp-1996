@@ -21,12 +21,40 @@ namespace DungeonClass
             int score = 0;
             //Weapon object creation
 
-            Weapon wep = new("Broadword", 1, 8, 10, false, WeaponType.Broadsword);
+            Weapon wep1 = new("Broadword", 1, 8, 10, false, WeaponType.Broadsword);
+            Weapon wep2 = new("Bow", 2, 10, 15, true, WeaponType.Broadsword);
+            Weapon wep3 = new("Axe", 3, 12, 5, true, WeaponType.Broadsword);
+            Weapon wep4 = new("Scimitar", 1, 12, 15, false, WeaponType.Scimitar);
+            Weapon wep5 = new("Fists", 1, 4, 40, false, WeaponType.Fists);
             //Potential expansion: Show user list of weapons and let them pick one, or assign one at random.
+            #region Weapon Choice
+
+            bool wepChoice = false;
+            do
+            {
+                Console.WriteLine("Choose your weapon: \n" +
+                    "1) Broadsword" +
+                    "2) Bow" +
+                    "3) Axe" +
+                    "4) Scimitar" +
+                    "5) Fists" +
+                    "X) Sever your fate");
+                ConsoleKey choice = Console.ReadKey(true).Key;
+                Console.Clear();
+                switch (choice)
+                {
+                    case ConsoleKey.1:
+                         Console.WriteLine("You chose the Broadsword!");
+                        break;
+                }
+
+            }
+
+            #endregion
 
             //Player object creation
             //Recommended Expansion - Player Customization. Pick a name and race.
-            Player player = new ("Conan", 70, 15, 40, Race.Cimmerian, wep);
+            Player player = new ("Conan", 70, 15, 40, RaceEnums.Cimmerian, wep);
             
 
             //Customization Menu Loop
