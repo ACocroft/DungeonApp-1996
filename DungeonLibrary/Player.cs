@@ -12,8 +12,8 @@ namespace DungeonLibrary
     {
         public Race PlayerRace { get; set; }
         public Weapon EquippedWeapon { get; set; }
-        public Player(string name, int hitChance, int block, int maxLife,//character params
-            Race playerRace, Weapon equippedWeapon)//player params
+        public Player(string name, int hitChance, int block, int maxLife,
+            Race playerRace, Weapon equippedWeapon)
             : base(name,
                    hitChance,
                    block,
