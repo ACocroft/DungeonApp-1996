@@ -12,15 +12,17 @@ namespace DungeonLibrary
     {
         public RaceEnums PlayerRace { get; set; }
         public Weapon EquippedWeapon { get; set; }
+        
+
         public Player(string name, int hitChance, int block, int maxLife,
-            RaceEnums playerRace, Weapon equippedWeapon)
+            RaceEnums playerRace, Weapon userChoice)
             : base(name,
                    hitChance,
                    block,
                    maxLife)
         {
             PlayerRace = playerRace;
-            EquippedWeapon = equippedWeapon;
+            EquippedWeapon = userChoice;
 
             #region Possible expansion - Racial Bonuses
             //In program.cs, you will have to show the user a list of races and let them pick one. Send it back to the
@@ -28,14 +30,20 @@ namespace DungeonLibrary
             switch (playerRace)
             {
                 case RaceEnums.Cimmerian:
+                    MaxLife += 5;
+                    Life = MaxLife;
+                    Block += 5;
                     break;
                 case RaceEnums.Shemite:
-                    HitChance += 5;
+                    HitChance += 10;
                     break;
                 case RaceEnums.Kushite: 
                     Block += 10;
                     break;
                 case RaceEnums.Stygian:
+                    HitChance += 5;
+                    MaxLife += 5;
+                    Life = MaxLife;
                     break;
                 case RaceEnums.Himelian:
                     MaxLife += 10;

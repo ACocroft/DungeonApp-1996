@@ -7,7 +7,6 @@ namespace DungeonClass
         static void Main(string[] args)
         {
             #region Introduction
-            //Start Background Music? (.wav) < 100mb, cannot control volume so turn headphones down
             //System.Windows.Extensions (NuGet package)
             Console.Title = "Conan the Cimmerian: A Harrowing Halls of Nemedia ";
             Console.WriteLine(" -===Conan the Cimmerian: A Harrowing Halls of Nemedia===- \n" +
@@ -19,42 +18,78 @@ namespace DungeonClass
             //Variable to keep score
             //Potential expansion, use "money" instead of a score to let user buy potions or whatever.
             int score = 0;
-            //Weapon object creation
-
-            Weapon wep1 = new("Broadword", 1, 8, 10, false, WeaponType.Broadsword);
-            Weapon wep2 = new("Bow", 2, 10, 15, true, WeaponType.Broadsword);
-            Weapon wep3 = new("Axe", 3, 12, 5, true, WeaponType.Broadsword);
-            Weapon wep4 = new("Scimitar", 1, 12, 15, false, WeaponType.Scimitar);
-            Weapon wep5 = new("Fists", 1, 4, 40, false, WeaponType.Fists);
-            //Potential expansion: Show user list of weapons and let them pick one, or assign one at random.
+            #region PlayerRace
+            PlayerRace r1 = new("Cimmerian", 1, 8, 10, false, WeaponType.Broadsword);
+            PlayerRace r2 = new("Shemite", 2, 10, 15, true, WeaponType.Bow);
+            PlayerRace r3 = new("Kushite", 3, 12, 5, true, WeaponType.Axe);
+            PlayerRace r4 = new("Stygian", 1, 12, 15, false, WeaponType.Scimitar);
+            PlayerRace r5 = new("Himelian", 1, 4, 40, false, WeaponType.Fists);
+            #endregion
             #region Weapon Choice
 
-            bool wepChoice = false;
+            Weapon wep1 = new("Broadword", 1, 8, 10, false, WeaponType.Broadsword);
+            Weapon wep2 = new("Bow", 2, 10, 15, true, WeaponType.Bow);
+            Weapon wep3 = new("Axe", 3, 12, 5, true, WeaponType.Axe);
+            Weapon wep4 = new("Scimitar", 1, 12, 15, false, WeaponType.Scimitar);
+            Weapon wep5 = new("Fists", 1, 4, 40, false, WeaponType.Fists);
+
+            bool wepEquipped = false;
+            Weapon equippedWeapon = new();
             do
             {
-                Console.WriteLine("Choose your weapon: \n" +
-                    "1) Broadsword" +
-                    "2) Bow" +
-                    "3) Axe" +
-                    "4) Scimitar" +
-                    "5) Fists" +
-                    "X) Sever your fate");
-                ConsoleKey choice = Console.ReadKey(true).Key;
-                Console.Clear();
-                switch (choice)
+                Console.WriteLine($"The tool with which you shall crush your enemies and" +
+                                  $" see them driven before you!\n" +
+                                  $"1) {wep1.WeaponType}\n" +
+                                  $"2) {wep2.WeaponType}\n" +
+                                  $"3) {wep3.WeaponType}\n" +
+                                  $"4) {wep4.WeaponType}\n" +
+                                  $"5) {wep5.WeaponType}\n");
+                char userChoice = (Console.ReadKey().KeyChar);
+                Console.WriteLine();
+                switch (userChoice)
                 {
-                    case ConsoleKey.1:
-                         Console.WriteLine("You chose the Broadsword!");
+                    case '1':
+                        equippedWeapon = wep1;
+                        wepEquipped = true;
+                        break;
+                    case '2':
+                        equippedWeapon = wep2;
+                        wepEquipped = true;
+                        break;
+                    case '3':
+                        equippedWeapon = wep3;
+                        wepEquipped = true;
+                        break;
+                    case '4':
+                        equippedWeapon = wep4;
+                        wepEquipped = true;
+                        break;
+                    case '5':
+                        equippedWeapon = wep5;
+                        wepEquipped = true;
+                        break;
+                    default:
+                        Console.WriteLine("Your actions cannot be divined.");
                         break;
                 }
-
-            }
-
+            } while (!wepEquipped);
             #endregion
+
+            // WeaponType[] weapons = Enum.GetValues<WeaponType>();
+            //.GetValues(typeof(WeaponType))
+            // foreach (WeaponType item in weapons)
+            {
+           //     Console.WriteLine($"{(int)item + 1} - {item}");
+            }
+           // int userChoice = Convert.ToInt32(Console.ReadLine());
+
+
+           // WeaponType equippedWeapon = (WeaponType)(userChoice - 1);
+            //Potential expansion: Show user list of weapons and let them pick one, or assign one at random.
 
             //Player object creation
             //Recommended Expansion - Player Customization. Pick a name and race.
-            Player player = new ("Conan", 70, 15, 40, RaceEnums.Cimmerian, wep);
+            Player player = new ("Conan", 70, 15, 40, RaceEnums.Cimmerian, equippedWeapon);
             
 
             //Customization Menu Loop
