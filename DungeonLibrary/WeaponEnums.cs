@@ -8,7 +8,7 @@ namespace DungeonLibrary
 {
     internal class WeaponEnums
     {
-        static void Main(string[] args)
+        static void PickWeaponType()
         {
             Console.Write("The tool with which you shall crush your enemies and see them" +
                           " driven before you!");
@@ -23,7 +23,6 @@ namespace DungeonLibrary
             {
                 Console.WriteLine($"{(int)item + 1} - {item}");
             }
-            Console.WriteLine("\nWith what device will you apply your practice? (enter the number only):");
             int userChoice = Convert.ToInt32(Console.ReadLine());
             WeaponType userWeapon = (WeaponType)(userChoice - 1);
 
@@ -48,5 +47,5 @@ namespace DungeonLibrary
                     break;
             }
         }
-    }
+    }// if userweapon really equals 1/2/3/4/5, override X trait and call it wep
 }

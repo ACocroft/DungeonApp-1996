@@ -81,6 +81,7 @@ namespace DungeonLibrary
             WeaponType = weaponType;
         }
 
+
         public override string ToString()
         {
             return $"{Name}\n" +
@@ -93,5 +94,6 @@ namespace DungeonLibrary
         public Weapon()
         {
         }
+
     }
 }
