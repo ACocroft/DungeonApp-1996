@@ -10,72 +10,67 @@ namespace DungeonLibrary
     //make it a child of Character by adding : Character
     public class Player : Character
     {
+        private bool raceChosen;
+
         public RaceEnums PlayerRace { get; set; }
         public Weapon EquippedWeapon { get; set; }
         
 
         public Player(string name, int hitChance, int block, int maxLife,
-            RaceEnums playerRace, Weapon userChoice)
+            RaceEnums raceChosen, Weapon equippedWeapon)
             : base(name,
                    hitChance,
                    block,
                    maxLife)
         {
-            PlayerRace = playerRace;
-            EquippedWeapon = userChoice;
+            PlayerRace = raceChosen;
+            EquippedWeapon = equippedWeapon;
 
             #region Possible expansion - Racial Bonuses
             //In program.cs, you will have to show the user a list of races and let them pick one. Send it back to the
             //player constructor. The reference for his is in your CSF2 Enums.cs for ClassicMonsters.
-            switch (playerRace)
-            {
-                case RaceEnums.Cimmerian:
-                    MaxLife += 5;
-                    Life = MaxLife;
-                    Block += 5;
-                    break;
-                case RaceEnums.Shemite:
-                    HitChance += 10;
-                    break;
-                case RaceEnums.Kushite: 
-                    Block += 10;
-                    break;
-                case RaceEnums.Stygian:
-                    HitChance += 5;
-                    MaxLife += 5;
-                    Life = MaxLife;
-                    break;
-                case RaceEnums.Himelian:
-                    MaxLife += 10;
-                    Life = MaxLife;
-                    break;
-            }
-
+            //switch (PlayerRace)
+            //{
+            //    case RaceEnums.Cimmerian:
+            //}
             #endregion
         }//end CTOR
+
         public Player()
         {
-
         }
+
         public override string ToString()
         {
             string raceDescription = "";
             switch (PlayerRace)
             {
                 case RaceEnums.Cimmerian:
-                    raceDescription = "Barbarians of the grey lands";
+                    raceDescription = 
+                                  $"Barbarians of the grey lands\n" +
+                                  $"--------------------\n";
                     break;
                 case RaceEnums.Shemite:
-                    raceDescription = "Fierce bowmen";
+                    raceDescription = 
+                                  $"Fierce bowmen\n" +
+                                  $"--------------------\n";
                     break;
                 case RaceEnums.Kushite:
-                    raceDescription = "Mysterious and devout";
+                    raceDescription = 
+                                  $"Mysterious and devout\n" +
+                                  $"--------------------\n";
                     break;
                 case RaceEnums.Stygian:
-                    raceDescription = "Cunning and merciless";
+                    raceDescription = 
+                                  $"Cunning and merciless\n" +
+                                  $"--------------------\n" ;
+                    
                     break;
                 case RaceEnums.Himelian:
-                    raceDescription = "Strong and hardy";
+                    raceDescription = 
+                                  $"Strong and hardy\n" +
+                                  $"--------------------";
+                    
                     break;
                 default:
                     break;

@@ -1,4 +1,5 @@
 ﻿using DungeonLibrary;
+using System.Numerics;
 
 namespace DungeonClass
 {
@@ -17,14 +18,11 @@ namespace DungeonClass
 
             //Variable to keep score
             //Potential expansion, use "money" instead of a score to let user buy potions or whatever.
+            int treasure = 0;
+            int beefBone = 0;
+            Random rand = new Random();
             int score = 0;
-            #region PlayerRace
-            PlayerRace r1 = new("Cimmerian", 1, 8, 10, false, WeaponType.Broadsword);
-            PlayerRace r2 = new("Shemite", 2, 10, 15, true, WeaponType.Bow);
-            PlayerRace r3 = new("Kushite", 3, 12, 5, true, WeaponType.Axe);
-            PlayerRace r4 = new("Stygian", 1, 12, 15, false, WeaponType.Scimitar);
-            PlayerRace r5 = new("Himelian", 1, 4, 40, false, WeaponType.Fists);
-            #endregion
+
             #region Weapon Choice
 
             Weapon wep1 = new("Broadword", 1, 8, 10, false, WeaponType.Broadsword);
@@ -40,10 +38,15 @@ namespace DungeonClass
                 Console.WriteLine($"The tool with which you shall crush your enemies and" +
                                   $" see them driven before you!\n" +
                                   $"1) {wep1.WeaponType}\n" +
+                                  $"-= An all-arounder =-\n" +
                                   $"2) {wep2.WeaponType}\n" +
+                                  $"-= Pick off enemies with ease =-\n" +
                                   $"3) {wep3.WeaponType}\n" +
+                                  $"-= A brutal but clumsy tool =-\n" +
                                   $"4) {wep4.WeaponType}\n" +
-                                  $"5) {wep5.WeaponType}\n");
+                                  $"-= Crafty, and requiring dexterity =-\n" +
+                                  $"5) {wep5.WeaponType}\n" +
+                                  $" -= When all else fails... =-");
                 char userChoice = (Console.ReadKey().KeyChar);
                 Console.WriteLine();
                 switch (userChoice)
@@ -79,18 +82,78 @@ namespace DungeonClass
             //.GetValues(typeof(WeaponType))
             // foreach (WeaponType item in weapons)
             {
-           //     Console.WriteLine($"{(int)item + 1} - {item}");
+                //     Console.WriteLine($"{(int)item + 1} - {item}");
             }
-           // int userChoice = Convert.ToInt32(Console.ReadLine());
+            // int userChoice = Convert.ToInt32(Console.ReadLine());
 
 
-           // WeaponType equippedWeapon = (WeaponType)(userChoice - 1);
+            // WeaponType equippedWeapon = (WeaponType)(userChoice - 1);
             //Potential expansion: Show user list of weapons and let them pick one, or assign one at random.
 
             //Player object creation
             //Recommended Expansion - Player Customization. Pick a name and race.
-            Player player = new ("Conan", 70, 15, 40, RaceEnums.Cimmerian, equippedWeapon);
-            
+            #region PlayerRace
+                                    //hitchance, block, maxlife
+            Player r1 = new("Cimmerian", 60, 40, 70, RaceEnums.Cimmerian, equippedWeapon);
+            Player r2 = new("Shemite", 70, 35, 60, RaceEnums.Shemite, equippedWeapon);
+            Player r3 = new("Kushite", 50, 65, 55, RaceEnums.Kushite, equippedWeapon);
+            Player r4 = new("Stygian", 80, 25, 40, RaceEnums.Stygian, equippedWeapon);
+            Player r5 = new("Himelian", 50, 40, 100, RaceEnums.Himelian, equippedWeapon);
+
+
+            bool raceChosen = false;
+            Player selectedRace = new();
+            do
+            {
+                Console.WriteLine($"What is your race? (number only) \n" +
+                                  $"--------------------\n\n" +
+                                  $"1) {r1}\n" +
+                                  $"2) {r2}\n" +
+                                  $"3) {r3}\n" +
+                                  $"4) {r4}\n" +
+                                  $"5) {r5}\n");
+                                  
+                char userChoice = (Console.ReadKey().KeyChar);
+                Console.WriteLine();
+                switch (userChoice)
+                {
+                    case '1':
+                        selectedRace =  r1;
+                        raceChosen = true;
+                        break;
+                    case '2':
+                        selectedRace = r2;
+                        raceChosen = true;
+                        break;
+                    case '3':
+                        selectedRace =  r3;
+                        raceChosen = true;
+                        break;
+                    case '4':
+                        selectedRace =  r4;
+                        raceChosen = true;
+                        break;
+                    case '5':
+                        selectedRace =  r5;
+                        raceChosen = true;
+                        break;
+                    default:
+                        Console.WriteLine("Your actions cannot be divined.");
+                        break;
+                }
+            } while (!raceChosen);
+            #endregion
+
+            #region PlayerName
+            Console.WriteLine("What is your name?");
+
+            selectedRace.Name = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine(selectedRace);
+
+            #endregion
+
+            //Player player = new("1", 1, 1, 1, RaceEnums.Cimmerian, equippedWeapon);
 
             //Customization Menu Loop
             bool lose = false;
@@ -110,6 +173,7 @@ namespace DungeonClass
                     Console.WriteLine("\nPlease choose an action: \n" +
                         "A) Strike\n" +
                         "R) Retreat\n" +
+                        "H) Heal\n" +
                         "P) Player Info\n" +
                         "M) Monster Info\n" +
                         "X) Sever your fate\n");
@@ -126,7 +190,7 @@ namespace DungeonClass
                             //Give certain races or characters with a certain weapon or advantage.
                             //if the player race is dark elf, then combat.doattack(player, monster)
                             #endregion
-                            Combat.DoBattle(player, monster);
+                            Combat.DoBattle(selectedRace, monster);
 
                             //check if the monster is dead
                             if (monster.Life <= 0)
@@ -136,6 +200,10 @@ namespace DungeonClass
                                 Console.ResetColor();
                                 reload = true;
                                 score++;
+                                int goldToAdd = rand.Next(1, 51);
+                                treasure += goldToAdd;
+                                int beefToAdd = rand.Next(0, 2);
+                                beefBone += beefToAdd;
                                 //Possible Expansion: Comabt rewards. Money, Weapons, etc
                             }
 
@@ -143,19 +211,31 @@ namespace DungeonClass
                         case ConsoleKey.R: //TODO Run Away
                             Console.WriteLine("Fall back! Regroup and heal!");
                             //Attack of opportunity
-                            Combat.DoAttack(monster, player);
+                            Combat.DoAttack(monster, selectedRace);
                             reload = true;
                             break;
                         case ConsoleKey.P: //Player
                             Console.WriteLine("Player Info");
-                            Console.WriteLine(player);
-                            Console.WriteLine("You have defeated " + score + " monsters.");
+                            Console.WriteLine(selectedRace);
+                            Console.WriteLine("You have defeated " + score + " monster(s), found " + beefBone + " beef bone(s), and " + treasure + " gold!");
                             break;
                         case ConsoleKey.M: //Monster
                             Console.WriteLine("Monster Info");
                             Console.WriteLine(monster);
                             break;
-
+                        case ConsoleKey.H:
+                            Console.WriteLine("Healed!");
+                            Console.WriteLine(beefBone);
+                            if (beefBone >= 1)
+                            {
+                                beefBone -= 1;
+                                selectedRace.Life = selectedRace.MaxLife;
+                            }
+                            break;
+                        //case ConsoleKey.W:
+                        //    Console.WriteLine("Look for weapon");
+                        //    Console.WriteLine(discoverWeapon);
+                        //    break;
                         case ConsoleKey.Escape:
                         case ConsoleKey.X:
                             Console.WriteLine("You would so meagerly sever that thread?");
@@ -168,7 +248,7 @@ namespace DungeonClass
                     }//end switch
 
                     //TODO Check player life. If they're dead, game over.
-                    if (player.Life <= 0)
+                    if (selectedRace.Life <= 0)
                     {
                         Console.WriteLine("Crom favors valour. Wander in the mists like the Cimmerians!\a");
                         lose = true;
@@ -217,15 +297,15 @@ namespace DungeonClass
 
         private static Monster GetMonster()
         {
-            Monster m1 = new("Ape Demon", 50, 40, 20, 8, 1, "A flying hellion from the planes of madness!");
-            Monster m2 = new("Hostile Barbarian", 40, 50, 30, 8, 1, "A jibbering wildman from the hills");
-            Monster m3 = new("Cultist of Set", 35, 20, 10, 8, 1, "A wicked priest of the Snake God");
-            Monster m4 = new("Ghoul", 15, 25, 10, 1, 8, "An undead eater of human flesh");
-            Monster m5 = new ApeDemon("Dark Ape Demon", 70, 20, 20, 10, 2, "A more feral version of the winged fiend, if such a thing exists!", false);
-            Monster m6 = new Barbarian("Ofirian SellSword", 20, 70, 20, 8, 1, "A heavily armored sellsword from the sister country of Ofir", true);
-            Monster m7 = new SetCultist("The Lich of Set", 50, 20, 80, 15, 5, "The fell priest" +
+            ApeDemon m1 = new("Ape Demon", 50, 40, 20, 8, 1, "A flying hellion from the planes of madness!",true);
+            Barbarian m2 = new("Hostile Barbarian", 40, 50, 30, 8, 1, "A jibbering wildman from the hills", false);
+            SetCultist m3 = new("Cultist of Set", 35, 20, 10, 8, 1, "A wicked priest of the Snake God", false);
+            Ghoul m4 = new("Ghoul", 15, 25, 10, 8, 1, "An undead eater of human flesh", false);
+            ApeDemon m5 = new ApeDemon("Dark Ape Demon", 70, 20, 20, 10, 2, "A more feral version of the winged fiend, if such a thing exists!", false);
+            Barbarian m6 = new Barbarian("Ofirian SellSword", 20, 70, 20, 8, 1, "A heavily armored sellsword from the sister country of Ofir", true);
+            SetCultist m7 = new SetCultist("The Lich of Set", 50, 20, 80, 15, 5, "The fell priest" +
                 "of Set", true);
-            Monster m8 = new Ghoul("Arch Ghoul", 25, 5, 5, 15, 5, "Watch out!", true);
+            Ghoul m8 = new Ghoul("Arch Ghoul", 25, 5, 5, 15, 5, "Watch out!", true);
 
             //create 4 monster subtypes. change monster array.
             Monster[] monsters =
