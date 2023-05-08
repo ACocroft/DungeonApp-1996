@@ -34,8 +34,8 @@ namespace DungeonLibrary
                 case WeaponType.Broadsword:
                     Console.WriteLine("\nThe reliable all-arounder.");
                     break;
-                case WeaponType.Greatsword:
-                    Console.WriteLine("\nStrength and agility combined.");
+                case WeaponType.Bow:
+                    Console.WriteLine("\nAgile Ranged Option.");
                     break;
                 case WeaponType.Axe:
                     Console.WriteLine("\nA brutal one handed splitter.");

@@ -41,7 +41,7 @@ namespace DungeonLibrary
             HitChance = 20;
             Block = 70;
             MinDamage = 1;
-            Description = " A heavily armored mercenary from the sister country of Ofir";
+            Description = " A heavily armored mercenary from the sister country of Ofir. ";
             IsArmored = true;
         }
 
@@ -51,7 +51,7 @@ namespace DungeonLibrary
         //Override CalcDamage()
         public override string ToString()
         {
-            return base.ToString() + (IsArmored ? "The torn brigandine shuffles plates of steel" +
+            return base.ToString() + (IsArmored ? "The torn brigandine shuffles plates of steel " +
                 "under the binding leather." : "The savage hillman wears only winter clothes");
         }
         public override int CalcBlock()
