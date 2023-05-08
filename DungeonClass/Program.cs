@@ -321,13 +321,13 @@ namespace DungeonClass
             Monster[] monsters =
             {
                 m1,m1,
-                //m2,m2,
-                //m3,m3,m3,m3,
-                //m4,m4,m4,m4,m4,m4,m4,
-                //m5,
-                //m6,
-                //m7,
-                //m8,
+                m2,m2,
+                m3,m3,m3,m3,
+                m4,m4,m4,m4,m4,m4,m4,
+                m5,
+                m6,
+                m7,
+                m8,
             };
 
             return monsters[new Random().Next(monsters.Length)];
