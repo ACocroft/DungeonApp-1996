@@ -38,12 +38,12 @@ namespace DungeonLibrary
             HitChance = 25;
             Block = 5;
             MinDamage = 7;
-            Description = " Watch out!";
+            Description = " Watch out! ";
             IsArchGhoul = true;
         }
         public override string ToString()
         {
-            return base.ToString() + (IsArchGhoul ? "A freakish albino variant" : "Jackal Men feasting on the dead.");
+            return base.ToString() + (IsArchGhoul ? "A freakish albino variant " : "Jackal Men feasting on the dead. ");
         }
         public override int CalcDamage()
         {

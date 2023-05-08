@@ -37,14 +37,14 @@ namespace DungeonLibrary
             HitChance = 50;
             Block = 20;
             MinDamage = 5;
-            Description = " The fell priest of Set";
+            Description = " The fell priest of Set, back from the dead! ";
             IsLich = true;
         }
         public override string ToString()
         {
             return base.ToString() + (IsLich ? "A gold and black Stygian robe beneath a\n" +
-                " deathshead of mail coif and golden crown." : "Silk white robes and a fierce\n" +
-                " snake mask of clay");
+                " deathshead of mail coif and golden crown. " : "Silk white robes and a fierce\n" +
+                "snake mask of clay ");
         }
         public override int CalcHitChance()
         {

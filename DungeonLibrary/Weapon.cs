@@ -91,8 +91,18 @@ namespace DungeonLibrary
                 $"{(IsTwoHanded ? "Two" : "One")}-Handed\n" +
                 $"Weapon Type: {WeaponType.ToString().Replace('_', ' ')}";
         }
+        public int CalculateMinDamage()
+        {
+            return MinDamage;
+        }
+
+        public int CalculateMaxDamage()
+        {
+            return MaxDamage;
+        }
         public Weapon()
         {
+
         }
 
     }

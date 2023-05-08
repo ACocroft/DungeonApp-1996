@@ -42,7 +42,7 @@ namespace DungeonLibrary
             HitChance = 70;
             Block = 20;
             MinDamage = 2;
-            Description = " A more feral ape demon, if such a thing could exist!";
+            Description = " A more feral ape demon, if such a thing could exist! ";
             IsRed = false;
         }
 
@@ -52,8 +52,8 @@ namespace DungeonLibrary
         //Override CalcDamage()
         public override string ToString()
         {
-            return base.ToString() + (IsRed ? "Thick red fur drapes its hide" : "Jet" +
-                "Black hairs from the abyss itself");
+            return base.ToString() + (IsRed ? "Thick red fur drapes its hide " : "Jet" +
+                "Black hairs from the abyss itself ");
         }
         public override int CalcDamage()
         {
