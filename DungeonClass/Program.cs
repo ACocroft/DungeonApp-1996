@@ -301,7 +301,7 @@ namespace DungeonClass
         {
             ApeDemon m1 = new("Ape Demon", 50, 40, 20, 8, 1, "A flying hellion from the planes of madness! \n" +
                 "          ^                     ^\r\n         / \\       .\"`\".       / \\\r\n        / /\\\\  .-./ _=_ \\.-.  /   \\\r\n       / /  \\\\{  (,(oYo),) }}/ / \\ \\\r\n      / /    \\{{ |   \"   |} }/    \\ \\\r\n     / /      { { \\(---)/  }}      \\ \\\r\n              {{  }'-=-'{ } }\r\n              { { }._:_.{  }}\r\n              {{  } -:- { } }\r\n              {_{ }`===`{  _}\r\n             ((((\\)     (/)))) \n", true);
-            Barbarian m2 = new("Hostile Barbarian", 40, 50, 30, 8, 1, "A jibbering wildman from the hills! \n" +
+            Barbarian m2 = new("Hostile Barbarian", 30, 15, 30, 8, 1, "A jibbering wildman from the hills! \n" +
                 "               /\\_[]_/\\\r\n              |] _||_ [|\r\n       ___     \\/ || \\/\r\n      /___\\       ||\r\n     (|0 0|)      ||\r\n   __/{\\U/}\\_ ___/vvv\r\n  / \\  {~}   / _|_P|\r\n  | /\\  ~   /_/   []\r\n  |_| (____)        \r\n  \\_]/______\\        \r\n     _\\_||_/_           \r\n    (_,_||_,_)\n", false);
             SetCultist m3 = new("Cultist of Set", 35, 20, 10, 8, 1, "A wicked priest of the Snake God \n" +
                 "                      @@@@@@@                      \r\n                    @@@@@@@@@&                    \r\n                    @@@@@@@@@@&                   \r\n                   *@@@@@@@@@@@&                  \r\n                   @@@@@@@@@                      \r\n                     @@@@@@@@@@@@@@@              \r\n               @@@@@@@@@@@@@@@@@@@@@@             \r\n                /@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#   \r\n                @@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@,\r\n                @@@@@@@@@@@@@@@@@   @@@@@@@@@@@@@@\r\n @             ,@@@&@@@@@@@@@@@@  /@@@@@@@@@@@@@@%\r\n%@@@           @@@@%@@@@@@@@@@@/ @@@@@@@@@@@@@@@  \r\n @@,          @@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@   \r\n @@@         @@@@*@@@@@@@@@@@@@@@@@@@@@@@@@@@@    \r\n  @@@        @@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@      \r\n   @@@@     /@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@       \r\n      @@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@        \r\n           @@@@  &@@@@@@@@@@@@@@@@@@@@@@          \r\n             @@  /@@@@@@@@@@@@@@@@@@@@@           \r\n                  @@@@@@@@@@@@@@@                 \r\n                  /@@@@@@@%@@@@@,                 \r\n                  .@@@@@@@@@@@@@                  \r\n                   @@@@@@  #@@@@                  \r\n                    @@@@   %@@@@                  \r\n                    @@@@   @@@@@                  \r\n                    @@@@   @@@@@                  \r\n                    @@@@@   @@@@                  \r\n                    @@@@@   @@@@                  \r\n                    /@@@.   &@@                   \r\n                     @@@    @@@*                  \r\n                     #@@.     %@@@                \r\n                    @@@@ \n", false);
@@ -309,7 +309,7 @@ namespace DungeonClass
                 "        ----------------------------\r\n        `:.  `::::'':!:``::::'   ::'\r\n        :'*:::.  .:' ! `:.  .:::*`:\r\n       :: HHH::.   ` ! '   .::HHH ::\r\n      ::: `H TH::.  `!'  .::HT H' :::\r\n      ::..  `THHH:`:   :':HHHT'  ..::\r\n      `::      `T: `. .' :T'      ::'\r\n        `:. .   :         :   . .:'\r\n          `::'               `::'\r\n            :'  .`.  .  .'.  `:\r\n            :' ::.       .:: `:\r\n           /:' `:::     :::' `:\\\r\n           | `.  ``     ''  .' |\r\n            \\ :`...........': /\r\n              ` :`.     .': '\r\n               `:  `\"\"\"'  :'         \n", false);
             ApeDemon m5 = new ApeDemon("Dark Ape Demon", 70, 20, 20, 10, 2, "A more feral version of the winged fiend, if such a thing exists! \n" +
                 "          ^                     ^\r\n         / \\       .\"`\".       / \\\r\n        / /\\\\  .-./#_=_#\\.-.  /   \\\r\n       / /  \\\\{##(,(oYo),)#}}/ / \\ \\\r\n      / /    \\{{#|   \"   |}#}/    \\ \\\r\n     / /      {#{#\\(---)/##}}      \\ \\\r\n              {{##}'-=-'{#}#}\r\n              {#{#}._:_.{##}}\r\n              {{##} -:- {#}#}\r\n              {_{#}`===`{# _}\r\n             ((((\\)     (/))))\n", false);
-            Barbarian m6 = new Barbarian("Ofirian SellSword", 20, 70, 20, 8, 1, "A heavily armored sellsword from the sister country of Ofir! \n" +
+            Barbarian m6 = new Barbarian("Ofirian SellSword", 50, 30, 20, 12, 4, "A heavily armored sellsword from the sister country of Ofir! \n" +
                 "                   _.--.    .--._\r\n                 .\"  .\"      \".  \".\r\n                ;  .\"    /\\    \".  ;\r\n                ;  '._,-/  \\-,_.`  ;\r\n                \\  ,`  / /\\ \\  `,  /\r\n                 \\/    \\/  \\/    \\/\r\n                 ,=_    \\/\\/    _=,\r\n                 |  \"_   \\/   _\"  |\r\n                 |_   '\"-..-\"'   _|\r\n                 | \"-.        .-\" |\r\n                 |    \"\\    /\"    |\r\n                 |      |  |      |\r\n         ___     |      |  |      |     ___\r\n     _,-\",  \",   '_     |  |     _'   ,\"  ,\"-,_\r\n   _(  \\  \\   \\\"=--\"-.  |  |  .-\"--=\"/   /  /  )_\r\n ,\"  \\  \\  \\   \\      \"-'--'-\"      /   /  /  /  \".\r\n!     \\  \\  \\   \\                  /   /  /  /     !\r\n:      \\  \\  \\   \\                /   /  /  /      TK\n", true);
             SetCultist m7 = new SetCultist("The Lich of Set", 50, 20, 80, 15, 5, "The fell priest" +
                 "of Set! \n" +
@@ -324,10 +324,10 @@ namespace DungeonClass
                 m2,m2,
                 m3,m3,m3,m3,
                 m4,m4,m4,m4,m4,m4,m4,
-                m5,
-                m6,
+                m5,m5,
+                m6,m6,m6,
                 m7,
-                m8,
+                m8,m8
             };
 
             return monsters[new Random().Next(monsters.Length)];
